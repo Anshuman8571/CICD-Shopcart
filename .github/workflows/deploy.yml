@@ -22,5 +22,5 @@ jobs:
               run: npm test
 
             - name: "Deploy to AWS"
-              run: pm2 --update-env restart server
+              run: pm2 --update-env restart src/index.js
             
