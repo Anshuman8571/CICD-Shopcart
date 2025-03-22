@@ -11,7 +11,7 @@ const { syncDbInOrder } = require('./models');
 
 const app = express();
 
-// app.use(responseTime(function f(req, res, time) {
+// app.use(responseTimefunction f(req, res, time) {
 //     console.log("Time elapsed = ", time);
 //     res.setHeader('X-Response-Time', time);
 // }));
@@ -23,6 +23,12 @@ app.use(bodyParser.text());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/api', ApiRouter); // if any req comes with url starting with /api
+
+app.get('/ping', (req, res) => {
+    return res.json({
+        message: "Welcome to Shopcart"
+    })
+});
 
 app.listen(PORT, async () => {
     console.log(`Server for Shopcart is Up ${PORT}`);
